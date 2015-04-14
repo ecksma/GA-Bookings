@@ -2,5 +2,7 @@ class Contract < ActiveRecord::Base
   belongs_to :user
   belongs_to :cohort
 
-  validates :acceptance_date, numericality: { only_integer: true }
+  validates :acceptance_date
+  validates :user_id, presence: true
+  validates :cohort_id, presence: true
 end

@@ -3,5 +3,5 @@ class CourseType < ActiveRecord::Base
 
   validates :name, length: { minimum: 2 }, presence: true
   validates :details, presence: true
-  validates :duration, inclusion: { in: %w(m f), message: "you have not chosen a valid gender (m/f)" }, presence: true
+  validates :duration, presence: true
 end
