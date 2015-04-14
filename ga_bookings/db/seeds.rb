@@ -13,3 +13,12 @@ cohort1 = Cohort.create!(name: "WDI12", start_date: "12/12/2012", end_date: "12/
 type1 = CourseType.create!(name: "WDI", details: "We are ninjas", duration: "12", cohort_id: cohort1.id)
 
 contract1 = Contract.create!(user_id: u1.id, cohort_id: cohort1.id, acceptance_date: "16")
+
+class1 = Classroom.create! name: "class1"
+
+b1 = Booking.create! start_time: Time.now + 1.hour, length: 5, classroom_id: class1.id, cohort_id: cohort1.id
+
+
+# Time must be > 15 mins from present
+# Length is in hours
+# cl.bookings.create!(start_time: Time.now + 1.hour, length: 1.hour)

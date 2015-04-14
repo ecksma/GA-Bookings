@@ -6,8 +6,8 @@ module Bookable
 
     validates :start_time, presence: true 
     validates :length, presence: true, numericality: { greater_than: 0 }
-    validate :start_date_cannot_be_in_the_past
-    validate :overlaps
+    validate  :start_date_cannot_be_in_the_past
+    validate  :overlaps
 
     before_validation :calculate_end_time
   
