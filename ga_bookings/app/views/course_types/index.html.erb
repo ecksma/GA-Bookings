@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Courses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @course_types.each do |course| %>
+    <tr>
+      <td><%= link_to "#{course.name}", course %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

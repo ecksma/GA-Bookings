@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :contracts
+  has_many :contracts, dependent: :destroy
   has_many :cohorts, through: :contracts
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
