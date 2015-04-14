@@ -8,5 +8,7 @@ class User < ActiveRecord::Base
 
   # checks to see if you have chosen one of given possibilities
   validates :role, inclusion: { in: %w(student teacher admin),
-    message: "you have not chosen a valid role" }
+    message: "you have not chosen a valid role" }, presence: true
+  validates :full_name, length: { in: 2..50}, presence: true
+  validates :gender, length: { is: 1}, presence: true
 end

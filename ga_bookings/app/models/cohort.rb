@@ -1,10 +1,10 @@
 class Cohort < ActiveRecord::Base
   has_many :contracts
   has_many :users, through: :contracts
-  has_one :course_type
+  has_one  :course_type
 
-  validates :name, length: { minimum: 2 }
-  validate :end_after_start
+  validates :name, length: { minimum: 2 }, presence: true
+  validate  :end_after_start
   validates :start_date, :end_date, :presence => true
 
   # used to check whether the start date is before the end date
