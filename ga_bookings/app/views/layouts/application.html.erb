@@ -20,6 +20,15 @@
         <img src="" >
         <label>Users</label>
       </a>
+        <% if user_signed_in? %>
+        <label>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+        </label>                  
+        <% else %>
+        <label>
+          <%= link_to('Login', new_user_session_path)  %>
+        </label>
+        <% end %>
       <a class="item" href="/cohorts">
         <img src="" >
         <label>Cohorts</label>
@@ -27,6 +36,10 @@
       <a class="item" href="/course_types">
         <img src="" >
         <label>Courses</label>
+      </a>
+      <a class="item" href="/classrooms">
+        <img src="" >
+        <label>Classrooms</label>
       </a>
     </div>
   </header>

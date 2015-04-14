@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414074201) do
+ActiveRecord::Schema.define(version: 20150414124607) do
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "length"
+    t.integer  "classroom_id"
+  end
+
+  add_index "bookings", ["classroom_id"], name: "index_bookings_on_classroom_id"
+
+  create_table "classrooms", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "cohorts", force: :cascade do |t|
     t.string   "name"

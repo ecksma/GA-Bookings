@@ -2,6 +2,7 @@ class Cohort < ActiveRecord::Base
   has_many :contracts
   has_many :users, through: :contracts
   has_one  :course_type
+  has_many :bookings
 
   validates :name, length: { minimum: 2 }, presence: true
   validate  :end_after_start

@@ -1,0 +1,13 @@
+<% if @classroom.errors.any? %>
+  <div class="errors">
+    <h3>
+      <%= pluralize(@classroom.errors.count, 'error') %>
+      prohibited this classroom from being saved:
+    </h3>
+    <ul>
+      <% @classroom.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
