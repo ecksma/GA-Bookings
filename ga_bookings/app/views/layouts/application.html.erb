@@ -16,19 +16,19 @@
 
   <header>
     <div class="icon-bar five-up">
+      <% if user_signed_in? %>
+      <label class="item">
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      </label>                  
+      <% else %>
+      <label class="item">
+        <%= link_to('Login', new_user_session_path)  %>
+      </label>
+      <% end %>
       <a class="item" href="/">
         <img src="" >
         <label>Users</label>
       </a>
-        <% if user_signed_in? %>
-        <label>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-        </label>                  
-        <% else %>
-        <label>
-          <%= link_to('Login', new_user_session_path)  %>
-        </label>
-        <% end %>
       <a class="item" href="/cohorts">
         <img src="" >
         <label>Cohorts</label>

@@ -15,6 +15,9 @@
     </td>
     <td><%= link_to "Delete", classroom_booking_path(@classroom, booking), data: { confirm: 'Are you sure?' }, method: :delete %>
     </td>
+    <td><%= link_to "Show", classroom_booking_path(@classroom, booking) %>
+    </td>
+    </td>
     <td><%= link_to "Edit", edit_classroom_booking_path(@classroom, booking) %>
     </td>
   </tr>
