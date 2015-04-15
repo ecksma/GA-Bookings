@@ -25,6 +25,15 @@
   <%= @user.gender %>
 </p>
 
+<p>
+  <strong>Cohorts:</strong>
+  <% @user.contracts.each do |c| %>
+  <li>
+   <%= link_to "#{c.cohort.name}", c.cohort %>
+ </li>
+</p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_user_registration_path(@user) %> |
 <%= link_to 'Back', users_path %>
