@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414133243) do
+ActiveRecord::Schema.define(version: 20150415103325) do
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "start_time"
@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20150414133243) do
     t.string   "name"
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "course_type_id"
   end
 
   create_table "contracts", force: :cascade do |t|
