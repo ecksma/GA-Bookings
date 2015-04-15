@@ -1,2 +1,30 @@
-<h1>CourseTypes#show</h1>
-<p>Find me in app/views/course_types/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @course_type.name %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @course_type.details %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @course_type.duration %>
+</p>
+
+<p>
+  <strong>Cohorts:</strong>
+  <% @course_type.cohorts.each do |c| %>
+  <li>
+   <%= link_to "#{c.name}", c %>
+ </li>
+</p>
+
+
+<% end %>
+
+<%= link_to 'Edit', edit_course_type_path(@course_type) %> |
+<%= link_to 'Back', course_types_path %>

@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Name:</strong>
+  <%= @cohort.course_type.name %>
+</p>
+
+<p>
   <strong>Start date:</strong>
   <%= @cohort.start_date %>
 </p>
@@ -14,6 +19,18 @@
   <strong>End date:</strong>
   <%= @cohort.end_date %>
 </p>
+
+<p>
+  <strong>Users:</strong>
+  <% @cohort.contracts.each do |c| %>
+  <li>
+   <%= link_to "#{c.user.full_name}", c.user %>
+   <%= c.user.role %>
+ </li>
+</p>
+
+
+<% end %>
 
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
 <%= link_to 'Back', cohorts_path %>

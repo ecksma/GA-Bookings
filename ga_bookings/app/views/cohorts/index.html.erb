@@ -8,7 +8,6 @@
       <th>Name</th>
       <th>Course Type</th>
       <th>Start date</th>
-      <th>End date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,13 +15,11 @@
   <tbody>
     <% @cohorts.each do |cohort| %>
       <tr>
-        <td><%= cohort.name %></td>
+        <td><%= link_to "#{cohort.name}", cohort %></td>
         <td><%= cohort.course_type.name %></td>
         <td><%= cohort.start_date %></td>
-        <td><%= cohort.end_date %></td>
-        <td><%= link_to 'Show', cohort %></td>
         <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
-        <td><%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

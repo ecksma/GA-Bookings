@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 	  resources :bookings
 	end
   resources :cohorts
+  resources :course_types
 
   devise_for :users
   resources :users, only:[:index, :show]
-  resources :course_types, only:[:index, :show]
 
-  root "users#index"
+  root "cohorts#index"
 end

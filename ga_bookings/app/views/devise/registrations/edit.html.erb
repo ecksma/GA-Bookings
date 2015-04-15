@@ -9,6 +9,21 @@
   </div>
 
   <div class="field">
+    <%= f.label :dob %><br />
+    <%= f.date_field :dob %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.select :gender, ["m", "f"] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :role %><br />
+    <%= f.select :role, ["student", "teacher", "admin"] %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email %>
   </div>
