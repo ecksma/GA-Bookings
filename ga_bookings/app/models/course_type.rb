@@ -1,5 +1,5 @@
 class CourseType < ActiveRecord::Base
-  belongs_to :cohort
+  has_many :cohorts
 
   validates :name, length: { minimum: 2 }, presence: true
   validates :details, presence: true
