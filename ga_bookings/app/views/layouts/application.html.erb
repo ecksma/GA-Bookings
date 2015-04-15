@@ -8,47 +8,61 @@
 
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "vendor/modernizr" %>
-  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="/">GAness</a></h1>
+      </li>
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
 
-   <!--  <div class="icon-bar five-up">
-      <#% if user_signed_in? %>
-      <label class="item">
-        <#%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-      </label>                  
-      <#% else %>
-      <label class="item">
-        <#%= link_to('Login', new_user_session_path)  %>
-      </label>
-      <#% end %>
-      <a class="item" href="/users">
-        <img src="" >
-        <label>Users</label>
-      </a>
-      <a class="item" href="/cohorts">
-        <img src="" >
-        <label>Cohorts</label>
-      </a>
-      <a class="item" href="/course_types">
-        <img src="" >
-        <label>Course Types</label>
-      </a>
-      <a class="item" href="/classrooms">
-        <img src="" >
-        <label>Classrooms</label>
-      </a>
-    </div> -->
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li><a href="#">add image here</a></li>
+        <li class="has-dropdown">
+          <a href="#">
+            <% if current_user %>
+            <%= current_user.full_name %>
+            <% else %>
+            Login/Signup
+            <% end %>
+          </a>
+          <ul class="dropdown">
+            <% if user_signed_in? %>
+            <li class="item"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+            <li class="item"><%= link_to('Edit Account', edit_user_registration_path(@user)) %></li>
+            <% else %>
+            <li class="item"><%= link_to('Login', new_user_session_path) %></li>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <li><%= link_to "Users", users_path %></li>
+        <li><%= link_to "Cohorts", cohorts_path %></li>
+        <li><%= link_to "Course Types", course_types_path %></li>
+        <li><%= link_to "Classrooms", classrooms_path %></li>
+      </ul>
+    </section>
+  </nav>
 
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
-    <main class="row">
-      <%= yield %>
-    </main>
+  <main class="row">
+    <%= yield %>
+  </main>
 
-  </body>
-  </html>
+</body>
+</html>
