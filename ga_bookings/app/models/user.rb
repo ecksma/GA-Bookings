@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  mount_uploader :image, ImageUploader
+  
   has_many :contracts, dependent: :destroy
   has_many :cohorts, through: :contracts
   # Include default devise modules. Others available are:

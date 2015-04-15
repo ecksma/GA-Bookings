@@ -25,7 +25,7 @@
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
-        <li><a href="#">add image here</a></li>
+        <li><%= image_tag current_user.try(:image).try(:thumb) %></li>
         <li class="has-dropdown">
           <a href="#">
             <% if current_user %>
@@ -49,9 +49,21 @@
       <!-- Left Nav Section -->
       <ul class="left">
         <li><%= link_to "Users", users_path %></li>
-        <li><%= link_to "Cohorts", cohorts_path %></li>
-        <li><%= link_to "Course Types", course_types_path %></li>
-        <li><%= link_to "Classrooms", classrooms_path %></li>
+        <li class="has-dropdown"><%= link_to "Cohorts", cohorts_path %>
+          <ul class="dropdown">
+            <li class="item"><%= link_to 'New Cohort', new_cohort_path %></li>
+          </ul>
+        </li>
+        <li class="has-dropdown"><%= link_to "Course Types", course_types_path %>
+          <ul class="dropdown">
+            <li class="item"><%= link_to 'New Course Type', new_course_type_path %></li>
+          </ul>
+        </li>
+        <li class="has-dropdown"><%= link_to "Classrooms", classrooms_path %>
+          <ul class="dropdown">
+            <li class="item"><%= link_to "Add Classroom", new_classroom_path %></li>
+          </ul>
+        </li>
       </ul>
     </section>
   </nav>

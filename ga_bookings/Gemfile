@@ -4,6 +4,8 @@ gem 'devise'
 gem 'railroady'
 gem 'foundation-rails'
 gem 'bookable', '~> 0.0.52'
+gem 'carrierwave', '~> 0.10.0'
+gem 'rmagick'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

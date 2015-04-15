@@ -46,6 +46,11 @@ GEM
     builder (3.2.2)
     byebug (4.0.5)
       columnize (= 0.9.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -126,6 +131,7 @@ GEM
     rdoc (4.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rmagick (2.14.0)
     sass (3.4.13)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -168,6 +174,7 @@ PLATFORMS
 DEPENDENCIES
   bookable (~> 0.0.52)
   byebug
+  carrierwave (~> 0.10.0)
   coffee-rails (~> 4.1.0)
   devise
   foundation-rails
@@ -175,6 +182,7 @@ DEPENDENCIES
   jquery-rails
   railroady
   rails (= 4.2.1)
+  rmagick
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
