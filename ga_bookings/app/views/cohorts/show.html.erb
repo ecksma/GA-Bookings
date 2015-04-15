@@ -24,7 +24,7 @@
   <strong>Users:</strong>
   <% @cohort.contracts.each do |c| %>
   <li>
-   <%= link_to "#{c.user.full_name}", c.user %>
+   <%= link_to "#{c.user.full_name}", c.user %> -
    <%= c.user.role %>
  </li>
 </p>
