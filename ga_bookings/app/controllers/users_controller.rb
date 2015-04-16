@@ -15,12 +15,14 @@ class UsersController < ApplicationController
   end
 
   def create
+
     cohorts = User.contracts.cohorts
     user_cohorts = params[:user].delete(:cohorts)
     @user.cohorts_ids = user_cohorts
   end
 
   def update
+    
     cohorts = User.contracts.cohorts
     user_cohorts = params[:user].delete(:cohorts)
     @user.cohorts_ids = user_cohorts

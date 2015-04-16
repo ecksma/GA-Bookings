@@ -29,6 +29,11 @@
 </div>
 
 <div class="field">
+  <label>Select a Cohort to join:</label>
+  <%= f.collection_check_boxes :cohort_ids, Cohort.all, :id, :name %>
+</div>
+
+<div class="field">
   <%= f.label :email %><br />
   <%= f.email_field :email %>
 </div>

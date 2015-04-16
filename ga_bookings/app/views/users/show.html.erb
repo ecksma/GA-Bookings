@@ -37,8 +37,9 @@
  </li>
 </p>
 <% end %>
-
-<% if can? :update, @user %>
-<%= link_to 'Edit', edit_user_registration_path(@user) %> |
-<%= link_to 'Back', users_path %>
-<% end %>
+<p>
+  <% if can? :update, @user %>
+  <%= link_to 'Edit', edit_user_registration_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+  <% end %>
+</p>
