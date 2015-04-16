@@ -17,7 +17,8 @@ class Ability
        u.id == user.id
      end
      can    :manage, Cohort
-     can    :edit, CourseType
+     can    :add, :edit, CourseType
+     can    :manage, CourseType
      cannot :manage, Classroom
    else
      can    :read, :all

@@ -7,5 +7,9 @@
     <%= f.label 'length', 'Length of booking in hours' %>
     <%= f.number_field 'length', min: 1 %>
   </p>
+  <p>
+    <%= f.label :course_type %><br>
+    <%= f.collection_select :cohort_id, Cohort.all, :id, :name, prompt: "Select a cohort" %>
+  </p>
   <%= f.submit 'Submit' %>
 <% end %> 

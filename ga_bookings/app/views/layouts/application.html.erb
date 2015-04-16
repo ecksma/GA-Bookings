@@ -18,8 +18,11 @@
       <li class="name">
         <h1><a href="/">GAness</a></h1>
       </li>
-      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      <li class="toggle-topbar menu-icon">
+        <a href="#">
+          <span>Menu</span>
+        </a>
+      </li>
     </ul>
 
     <section class="top-bar-section">
@@ -50,11 +53,11 @@
       <ul class="left">
        <li class="has-form">
          <div class="row collapse">
-           <div class="large-8 small-9 columns">
+         <div class="large-7 small-7 columns">
              <%= search_form_for @q do |f| %>
              <%= f.text_field @search_field, placeholder: "Search" %>
            </div>
-           <div class="large-4 small-3 columns">
+           <div class="large-4 small-4 columns">
              <%= f.submit class: "alert button expand" %>
            </div>
            <% end %>
@@ -80,8 +83,6 @@
   </section>
 </nav>
 
-
-<p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
 <main class="row">

@@ -1,13 +1,12 @@
-<h3>classrooms</h3>
+<h3>Available Classrooms</h3>
 
 <% @classrooms.each do |classroom| %>
   <div class="classroom">
     <%= classroom.name %>
-    <%= link_to "Show all bookings", classroom_bookings_path(classroom) %>
+    <%= link_to "Bookings", classroom_bookings_path(classroom) %>
     <% if can? :update, Classroom %>
     <%= link_to "Delete", classroom_path(classroom), data: { confirm: 'Are you sure?' }, method: :delete %>
     <%= link_to "Edit", edit_classroom_path(classroom) %>
-    <strong><%= link_to "Add booking", new_classroom_booking_path(classroom) %></strong>
     <% end %>
   </div>
 <% end %>

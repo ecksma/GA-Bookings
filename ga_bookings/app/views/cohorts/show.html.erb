@@ -7,7 +7,7 @@
 
 <p>
   <strong><%= @cohort.name %> is following course: </strong>
-  <%= link_to "#{@cohort.course_type.name}" , @cohort.course_type %>
+  <%= link_to "#{@cohort.course_type.try(:name)}" , @cohort.course_type %>
 </p>
 
 <p>

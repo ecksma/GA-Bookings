@@ -2,5 +2,7 @@
   <%= render 'errors' %>
   <%= f.label 'name', 'Name' %>
   <%= f.text_field 'name', placeholder: 'Name'%>
+  <%= f.label 'occupancy', 'Occupancy' %>
+  <%= f.number_field 'occupancy', placeholder: 'Occupancy'%>
   <%= f.submit 'Submit' %>
 <% end %>

@@ -12,11 +12,11 @@
 
 <p>
   <strong>Duration:</strong>
-  <%= @course_type.duration %>
+  <%= @course_type.duration %> hours
 </p>
 
 <p>
-  <strong>Cohorts:</strong>
+  <strong>Cohorts following this course:</strong>
   <% @course_type.cohorts.each do |c| %>
   <li>
    <%= link_to "#{c.name}", c %>

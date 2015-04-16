@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking =  Booking.new(params[:booking].permit(:classroom_id, :start_time, :length))
+    @booking =  Booking.new(params[:booking].permit(:classroom_id, :start_time, :length, :cohort_id))
     @booking.classroom = @classroom
     if @booking.save
       redirect_to classroom_bookings_path(@classroom, method: :get)
@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     # @booking.classrooms = @classrooms
 
-    if @booking.update(params[:booking].permit(:classroom_id, :start_time, :length))
+    if @booking.update(params[:booking].permit(:classroom_id, :start_time, :length, :cohort_id))
       flash[:notice] = 'Your booking was updated succesfully'
 
       if request.xhr?

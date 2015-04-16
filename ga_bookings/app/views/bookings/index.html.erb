@@ -1,6 +1,7 @@
 <h3> Bookings for <%= @classroom.name %></h3>
 <table class="bookings_table">
   <tr>
+    <th>Cohort</th>
     <th>Start</th>
     <th>End</th>
   </tr>
@@ -8,22 +9,24 @@
   <% @bookings.each do |booking| %>
   <tr>
     <td>
+      <%= booking.cohort.name %>
+    </td>
+    <td>
       <%= booking.start_time.strftime('%e %b %Y %H:%M%p') %>
     </td>
     <td>
       <%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
     </td>
-    <td><%= link_to "Show", classroom_booking_path(@classroom, booking) %>
-    </td>
-    <% if can? :update, Classroom %>
-    <td><%= link_to "Delete", classroom_booking_path(@classroom, booking), data: { confirm: 'Are you sure?' }, method: :delete %>
-    </td>
-    </td>
-    <td><%= link_to "Edit", edit_classroom_booking_path(@classroom, booking) %>
-    </td>
+    <td>
+      <% if can? :update, Classroom %>
+    <%= link_to "Delete", classroom_booking_path(@classroom, booking), data: { confirm: 'Are you sure?' }, method: :delete %>
+    <%= link_to "Edit", edit_classroom_booking_path(@classroom, booking) %>
     <% end %>
+    </td>
   </tr>
   <% end %>
 </table>
 
-<%= link_to "Back", classrooms_path %>
+<%= link_to "Add booking", new_classroom_booking_path(@classroom) %> |
+
+<%= link_to "Back to Classrooms", classrooms_path %>
