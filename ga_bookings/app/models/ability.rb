@@ -2,18 +2,18 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new # guest user (not logged in)
-    if user.role = "admin"
-       can :manage, :all
-   else
-       can :read, :all
-   end
 
-    user ||= User.new # guest user (not logged in)
-    if user.role = "student"
-        cannot :manage, :all
+   if user.try(:role) == "admin"
+    can       :manage, :all
+   elsif user.try(:role) == "student"
+       can    :manage, User do |u|
+           u.id == user.id
+       end
+       cannot :manage, Cohort
+       cannot :manage, CourseType
+       cannot :manage, Classroom
    else
-       can :read, :all
+       can    :read, :all
    end
 end
 end

@@ -13,8 +13,10 @@
     <% @course_types.each do |course| %>
     <tr>
       <td><%= link_to "#{course.name}", course %></td>
+      <% if can? :update, CourseType %>
       <td><%= link_to 'Edit', edit_course_type_path(course) %></td>
       <td><%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

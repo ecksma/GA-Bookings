@@ -13,13 +13,15 @@
     <td>
       <%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
     </td>
-    <td><%= link_to "Delete", classroom_booking_path(@classroom, booking), data: { confirm: 'Are you sure?' }, method: :delete %>
-    </td>
     <td><%= link_to "Show", classroom_booking_path(@classroom, booking) %>
+    </td>
+    <% if can? :update, Classroom %>
+    <td><%= link_to "Delete", classroom_booking_path(@classroom, booking), data: { confirm: 'Are you sure?' }, method: :delete %>
     </td>
     </td>
     <td><%= link_to "Edit", edit_classroom_booking_path(@classroom, booking) %>
     </td>
+    <% end %>
   </tr>
   <% end %>
 </table>

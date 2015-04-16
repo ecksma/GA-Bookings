@@ -28,6 +28,19 @@
   <%= f.select :role, ["student", "teacher", "admin"] %>
 </div>
 
+<!-- <div class="row">
+  <label>Select a Cohort to join:</label>
+  <ul>
+    <#% @user.contracts.all.each do |cohort| %>
+    <li type="checkbox">
+      <#% is_checked = @user.cohorts_ids.include? cohort.id %>
+      <#%= check_box_tag "user.contracts[cohorts][]", cohort.id, is_checked %>
+      <#%= "##{contracts.cohort.name}" %>
+    </li>
+    <#% end %>
+  </ul>
+</div> -->
+
 <div class="field">
   <%= f.label :email %><br />
   <%= f.email_field :email %>

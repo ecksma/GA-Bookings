@@ -14,13 +14,15 @@
 
   <tbody>
     <% @cohorts.each do |cohort| %>
-      <tr>
-        <td><%= link_to "#{cohort.name}", cohort %></td>
-        <td><%= link_to "#{cohort.course_type.name}" , cohort.course_type %></td>
-        <td><%= cohort.start_date %></td>
-        <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
-        <td><%= link_to 'Delete', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= link_to "#{cohort.name}", cohort %></td>
+      <td><%= link_to "#{cohort.course_type.name}" , cohort.course_type %></td>
+      <td><%= cohort.start_date %></td>
+      <% if can? :update, Cohort %>
+      <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
+      <td><%= link_to 'Delete', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tr>
     <% end %>
   </tbody>
 </table>
