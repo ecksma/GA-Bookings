@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @search_field = :full_name_cont
+    if params[:q].present?
+      @users = @q.result(distinct: true)
+    else
+      @users = User.all
+    end
   end
 
   def show
@@ -21,4 +27,3 @@ class UsersController < ApplicationController
   end
 
 end
-

@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_default_search
+
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
@@ -11,7 +13,13 @@ class ApplicationController < ActionController::Base
     end
     devise_parameter_sanitizer.for(:account_update) do |u|
      u.permit(:name, :email, :password, :password_confirmation, :current_password, :full_name, :dob, :role, :gender, :image)
-   end
- end
+    end
+  end
+
+  def set_default_search
+    @q = User.ransack(params[:q])
+    @search_field = :full_name_cont
+  end
+
 end
 

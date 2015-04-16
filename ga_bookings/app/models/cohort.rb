@@ -1,5 +1,5 @@
 class Cohort < ActiveRecord::Base
-  has_many    :contracts
+  has_many    :contracts, dependent: :destroy
   has_many    :users, through: :contracts
   belongs_to  :course_type
   has_many    :bookings

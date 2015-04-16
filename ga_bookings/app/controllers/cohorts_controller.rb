@@ -4,7 +4,13 @@ class CohortsController < ApplicationController
   # GET /cohorts
   # GET /cohorts.json
   def index
-    @cohorts = Cohort.all
+    @q = Cohort.ransack(params[:q])
+    @search_field = :name_cont
+    if params[:q].present?
+      @cohorts = @q.result(distinct: true)
+    else
+      @cohorts = Cohort.all
+    end
   end
 
   # GET /cohorts/1

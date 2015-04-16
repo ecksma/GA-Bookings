@@ -48,33 +48,45 @@
 
       <!-- Left Nav Section -->
       <ul class="left">
-        <li><%= link_to "Users", users_path %></li>
-        <li class="has-dropdown"><%= link_to "Cohorts", cohorts_path %>
-          <ul class="dropdown">
-            <li class="item"><%= link_to 'New Cohort', new_cohort_path %></li>
-          </ul>
-        </li>
-        <li class="has-dropdown"><%= link_to "Course Types", course_types_path %>
-          <ul class="dropdown">
-            <li class="item"><%= link_to 'New Course Type', new_course_type_path %></li>
-          </ul>
-        </li>
-        <li class="has-dropdown"><%= link_to "Classrooms", classrooms_path %>
-          <ul class="dropdown">
-            <li class="item"><%= link_to "Add Classroom", new_classroom_path %></li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-  </nav>
+       <li class="has-form">
+         <div class="row collapse">
+           <div class="large-8 small-9 columns">
+             <%= search_form_for @q do |f| %>
+             <%= f.text_field @search_field, placeholder: "Search" %>
+           </div>
+           <div class="large-4 small-3 columns">
+             <%= f.submit class: "alert button expand" %>
+           </div>
+           <% end %>
+         </div>
+       </li>
+       <li><%= link_to "Users", users_path %></li>
+       <li class="has-dropdown"><%= link_to "Cohorts", cohorts_path %>
+        <ul class="dropdown">
+          <li class="item"><%= link_to 'New Cohort', new_cohort_path %></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><%= link_to "Course Types", course_types_path %>
+        <ul class="dropdown">
+          <li class="item"><%= link_to 'New Course Type', new_course_type_path %></li>
+        </ul>
+      </li>
+      <li class="has-dropdown"><%= link_to "Classrooms", classrooms_path %>
+        <ul class="dropdown">
+          <li class="item"><%= link_to "Add Classroom", new_classroom_path %></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>
 
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
-  <main class="row">
-    <%= yield %>
-  </main>
+<main class="row">
+  <%= yield %>
+</main>
 
 </body>
 </html>
