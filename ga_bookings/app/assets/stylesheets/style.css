@@ -1,3 +1,151 @@
-.title-area {
-  background-color: red;
+body main {
+  text-align: center;
 }
+
+.title-area {
+  background-color: #fff;
+}
+
+.ga {
+  max-height: 60px;
+  margin-top: -3px;
+  text-align: center;
+  padding: 5px;
+}
+
+h1 {
+  font-family: "Typewriter";
+  margin-bottom: 20px;
+  border: 2px solid #cecece; 
+}
+
+.profile-picture{
+  max-height: 50px;
+  margin-top: 5px;
+}
+
+.user-index {
+  background-color: #f2f2f2;
+  border: 4px ridge #cecece;
+  border-radius: 5px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  line-height: 20px;
+  font-family: "Comic Sans MS";
+  margin-bottom: 5px;
+}
+
+.user-index p {
+  font-family: "Comic Sans MS"
+}
+
+.user-index img {
+  border: 1px solid black;
+  border-radius: 2px;
+  margin-bottom: 8px;
+}
+
+.user-index h2 a {
+  font-size: 18px;
+  font-family: "Comic Sans MS"
+}
+
+.user-show-options {
+  width: 100px;
+  margin-top: 10px;
+  padding: 5px;
+  border: 2px solid black;
+  font-size: 15px;
+}
+
+.user-show-options a {
+  font-family: "Verdana"
+}
+
+.cohort-index {
+  background-color: #d9dbf4;
+  border: 4px ridge #cecece;
+  border-radius: 5px;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 10px;
+  line-height: 20px;
+  font-family: "Comic Sans MS";
+}
+
+.cohort-index h2 a {
+  font-size: 32px;
+  color: black;
+  font-family: "Comic Sans MS"
+}
+
+.cohort-index a:hover {
+  color: white;
+  padding: 3px;
+}
+
+.coursetype-index {
+  background-color: #d89c9c;
+  border: 4px ridge #cecece;
+  border-radius: 5px;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 10px;
+  line-height: 20px;
+  font-family: "Comic Sans MS";
+}
+
+.coursetype-index h2 a {
+  font-size: 28px;
+  color: black;
+  font-family: "Comic Sans MS"
+}
+
+.coursetype-index a:hover {
+  color: white;
+  padding: 3px;
+}
+
+.coursetype-index h4 {
+  border: 1px dashed #cecece;
+  font-size: 18px;
+  color: black;
+  font-family: "Comic Sans MS"
+}
+
+.classroom-index {
+  background-color: #d89c9c;
+  border: 4px ridge #cecece;
+  border-radius: 5px;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 10px;
+  line-height: 20px;
+  font-family: "Comic Sans MS";
+}
+
+.classroom-index h2 {
+  font-size: 24px;
+  color: black;
+  font-family: "Comic Sans MS"
+}
+
+.classroom-index a {
+  font-size: 18px;
+  color: black;
+  font-family: "Comic Sans MS"
+}
+
+.classroom-index a:hover {
+  color: white;
+  padding: 3px;
+}
+

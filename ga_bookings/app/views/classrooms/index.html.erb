@@ -1,12 +1,18 @@
-<h3>Available Classrooms</h3>
+<h1>Available Classrooms</h1>
 
-<% @classrooms.each do |classroom| %>
-  <div class="classroom">
-    <%= classroom.name %>
-    <%= link_to "Bookings", classroom_bookings_path(classroom) %>
-    <% if can? :update, Classroom %>
-    <%= link_to "Delete", classroom_path(classroom), data: { confirm: 'Are you sure?' }, method: :delete %>
-    <%= link_to "Edit", edit_classroom_path(classroom) %>
-    <% end %>
-  </div>
-<% end %>
+<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+  <% @classrooms.each do |classroom| %>
+  <li>
+    <ul>
+      <li class="classroom-index">
+        <h2><%= classroom.name %></h2> <br>
+        <%= link_to "Bookings", classroom_bookings_path(classroom) %> <br>
+        <% if can? :update, Classroom %>
+        <%= link_to "Edit", edit_classroom_path(classroom) %> |
+        <%= link_to "Delete", classroom_path(classroom), data: { confirm: 'Are you sure?' }, method: :delete %>
+        <% end %>
+      </li>
+    </ul>
+  </li>
+  <% end %>
+</ul>

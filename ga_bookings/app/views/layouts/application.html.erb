@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "GA - Planner" %></title>
 
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "vendor/modernizr" %>
@@ -16,7 +16,7 @@
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/">GAness</a></h1>
+        <h1><img class="ga" src="http://cic.us/wp-content/uploads/2013/07/General-Assembly-logo.png"></h1>
       </li>
       <li class="toggle-topbar menu-icon">
         <a href="#">
@@ -28,7 +28,7 @@
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
-        <li><%= image_tag current_user.try(:image).try(:thumb) %></li>
+        <li><%= image_tag current_user.try(:image).try(:thumb), class: "profile-picture" %></li>
         <li class="has-dropdown">
           <a href="#">
             <% if current_user %>
@@ -53,7 +53,7 @@
       <ul class="left">
        <li class="has-form">
          <div class="row collapse">
-         <div class="large-7 small-7 columns">
+           <div class="large-7 small-7 columns">
              <%= search_form_for @q do |f| %>
              <%= f.text_field @search_field, placeholder: "Search" %>
            </div>
@@ -66,17 +66,23 @@
        <li><%= link_to "Users", users_path %></li>
        <li class="has-dropdown"><%= link_to "Cohorts", cohorts_path %>
         <ul class="dropdown">
+        <% if can? :add, @user %>
           <li class="item"><%= link_to 'New Cohort', new_cohort_path %></li>
+          <% end %>
         </ul>
       </li>
       <li class="has-dropdown"><%= link_to "Course Types", course_types_path %>
         <ul class="dropdown">
+          <% if can? :add, @user %>
           <li class="item"><%= link_to 'New Course Type', new_course_type_path %></li>
+          <% end %>
         </ul>
       </li>
       <li class="has-dropdown"><%= link_to "Classrooms", classrooms_path %>
         <ul class="dropdown">
+          <% if can? :add, @user %>
           <li class="item"><%= link_to "Add Classroom", new_classroom_path %></li>
+          <% end %>
         </ul>
       </li>
     </ul>

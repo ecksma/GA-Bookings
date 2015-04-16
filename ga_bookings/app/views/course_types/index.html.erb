@@ -1,23 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Courses</h1>
+<h1>Courses</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
+<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-3">
+  <% @course_types.each do |course| %>
+  <li>
+    <ul>
+      <li class="coursetype-index">
+        <h2><%= link_to "#{course.name}", course %></h2> <br>
+        <h4>Details: <%= course.details %></h4> <br>
+        <% if can? :update, CourseType %>
+        <%= link_to 'Edit', edit_course_type_path(course) %> |
+        <%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </li>
+    </ul>
+  </li>
+  <% end %>
+</ul>
 
-  <tbody>
-    <% @course_types.each do |course| %>
-    <tr>
-      <td><%= link_to "#{course.name}", course %></td>
-      <% if can? :update, CourseType %>
-      <td><%= link_to 'Edit', edit_course_type_path(course) %></td>
-      <td><%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tr>
-    <% end %>
-  </tbody>
-</table>

@@ -1,36 +1,31 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @cohort.name %>
-</p>
-
-<p>
-  <strong><%= @cohort.name %> is following course: </strong>
-  <%= link_to "#{@cohort.course_type.try(:name)}" , @cohort.course_type %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @cohort.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @cohort.end_date %>
-</p>
-
-<p>
-  <strong>Users:</strong>
-  <% @cohort.contracts.each do |c| %>
-  <li>
-   <%= link_to "#{c.user.full_name}", c.user %> -
-   <%= c.user.role %>
- </li>
-</p>
-
-
-<% end %>
+<div>
+  <p>
+    <strong>Name:</strong>
+    <%= @cohort.name %>
+  </p>
+  <p>
+    <strong><%= @cohort.name %> is following course: </strong>
+    <%= link_to "#{@cohort.course_type.try(:name)}" , @cohort.course_type %>
+  </p>
+  <p>
+    <strong>Start date:</strong>
+    <%= @cohort.start_date %>
+  </p>
+  <p>
+    <strong>End date:</strong>
+    <%= @cohort.end_date %>
+  </p>
+  <p>
+    <strong>Users:</strong>
+    <% @cohort.contracts.each do |c| %>
+    <li>
+     <%= link_to "#{c.user.full_name}", c.user %> -
+     <%= c.user.role %>
+   </li>
+ </p>
+ <% end %>
+</div>
 
 <% if can? :update, Cohort %>
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
