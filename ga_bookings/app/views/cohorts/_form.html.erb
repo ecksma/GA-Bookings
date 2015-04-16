@@ -16,6 +16,10 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :course_type %><br>
+    <%= f.collection_select :course_type_id, CourseType.all, :id, :name, prompt: "Select a course" %>
+  </div>
+  <div class="field">
     <%= f.label :start_date %><br>
     <%= f.date_select :start_date %>
   </div>

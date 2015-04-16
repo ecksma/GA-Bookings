@@ -4,18 +4,25 @@ class Ability
   def initialize(user)
 
    if user.try(:role) == "admin"
-       can    :manage, :all
+     can    :manage, :all
    elsif user.try(:role) == "student"
-       can    :manage, User do |u|
-           u.id == user.id
-       end
-       cannot :manage, Cohort
-       cannot :manage, CourseType
-       cannot :manage, Classroom
+     can    :manage, User do |u|
+       u.id == user.id
+     end
+     cannot :manage, Cohort
+     cannot :manage, CourseType
+     cannot :manage, Classroom
+   elsif user.try(:role) == "teacher"
+     can    :manage, User do |u|
+       u.id == user.id
+     end
+     can    :manage, Cohort
+     can    :edit, CourseType
+     cannot :manage, Classroom
    else
-       can    :read, :all
+     can    :read, :all
    end
-end
+ end
 end
 
 # Define abilities for the passed in user here. For example:
